@@ -348,7 +348,7 @@ class WPVarnish {
 			$wpv_use_adminport = $array_wpv_use_adminport[$i];
 			$wpv_use_version = $array_wpv_use_version[$i];
 			$wpv_wpurl = get_bloginfo('wpurl');
-			$wpv_replace_wpurl = '/^http:\/\/([^\/]+)(.*)/i';
+			$wpv_replace_wpurl = '/^https?:\/\/([^\/]+)(.*)/i';
 			$wpv_host = preg_replace($wpv_replace_wpurl, "$1", $wpv_wpurl);
 			$wpv_blogaddr = preg_replace($wpv_replace_wpurl, "$2", $wpv_wpurl);
 			$wpv_url = $wpv_blogaddr.$wpv_url;
@@ -416,7 +416,7 @@ class WPVarnish {
 			$wpv_use_version = get_option("wpvarnish_use_version_3");
 		}
 		$wpv_wpurl = get_bloginfo("wpurl");
-		$wpv_replace_wpurl = '/^http:\/\/([^\/]+)(.*)/i';
+		$wpv_replace_wpurl = '/^https?:\/\/([^\/]+)(.*)/i';
 		$wpv_host = preg_replace($wpv_replace_wpurl, "$1", $wpv_wpurl);
 		$wpv_url = $wpv_blogaddr."/";
 		$varnish_test_conn .= "<ul>\n";
